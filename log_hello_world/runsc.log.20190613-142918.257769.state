@@ -1,0 +1,16 @@
+I0613 14:29:18.257812   21724 x:0] ***************************
+I0613 14:29:18.257854   21724 x:0] Args: [/usr/local/bin/runsc --platform=kvm --debug-log=/tmp/runsc/ --debug --strace --root /var/run/docker/runtime-runsc-kvm/moby --log /run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/log.json --log-format json state 8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222]
+I0613 14:29:18.257871   21724 x:0] Version release-20190529.1-39-ge03aefd88c42-dirty
+I0613 14:29:18.257877   21724 x:0] PID: 21724
+I0613 14:29:18.257886   21724 x:0] UID: 0, GID: 0
+I0613 14:29:18.257891   21724 x:0] Configuration:
+I0613 14:29:18.257897   21724 x:0] 		RootDir: /var/run/docker/runtime-runsc-kvm/moby
+I0613 14:29:18.257902   21724 x:0] 		Platform: kvm
+I0613 14:29:18.257911   21724 x:0] 		FileAccess: exclusive, overlay: false
+I0613 14:29:18.257921   21724 x:0] 		Network: sandbox, logging: false
+I0613 14:29:18.257929   21724 x:0] 		Strace: true, max size: 1024, syscalls: []
+I0613 14:29:18.257936   21724 x:0] ***************************
+D0613 14:29:18.257944   21724 x:0] Load container "/var/run/docker/runtime-runsc-kvm/moby" "8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222"
+D0613 14:29:18.259068   21724 x:0] Returning state for container &{ID:8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 Spec:0xc000033570 BundleDir:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 Root:/var/run/docker/runtime-runsc-kvm/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 CreatedAt:2019-06-13 14:29:18.184795647 +0800 CST Owner: ConsoleSocket: Status:created GoferPid:21674 goferIsChild:false Sandbox:0xc00013fb30 RootContainerDir:/var/run/docker/runtime-runsc-kvm/moby}
+D0613 14:29:18.259098   21724 x:0] State: {Version:1.0.1-dev ID:8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 Status:created Pid:21683 Bundle:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 Annotations:map[]}
+I0613 14:29:18.259135   21724 x:0] Exiting with status: 0

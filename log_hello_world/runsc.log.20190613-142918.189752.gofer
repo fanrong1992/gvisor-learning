@@ -1,0 +1,515 @@
+I0613 14:29:18.198405       1 x:0] ***************************
+I0613 14:29:18.198480       1 x:0] Args: [runsc-gofer --root=/var/run/docker/runtime-runsc-kvm/moby --debug=true --log=/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/log.json --log-format=json --debug-log=/tmp/runsc/ --debug-log-format=text --file-access=exclusive --overlay=false --network=sandbox --log-packets=false --platform=kvm --strace=true --strace-syscalls= --strace-log-size=1024 --watchdog-action=LogWarning --panic-signal=-1 --profile=false --net-raw=false --log-fd=3 --debug-log-fd=4 gofer --bundle /run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 --spec-fd=5 --mounts-fd=6 --io-fds=7 --io-fds=8 --io-fds=9 --io-fds=10]
+I0613 14:29:18.198505       1 x:0] Version release-20190529.1-39-ge03aefd88c42-dirty
+I0613 14:29:18.198512       1 x:0] PID: 1
+I0613 14:29:18.198520       1 x:0] UID: 0, GID: 0
+I0613 14:29:18.198526       1 x:0] Configuration:
+I0613 14:29:18.198531       1 x:0] 		RootDir: /var/run/docker/runtime-runsc-kvm/moby
+I0613 14:29:18.198537       1 x:0] 		Platform: kvm
+I0613 14:29:18.198567       1 x:0] 		FileAccess: exclusive, overlay: false
+I0613 14:29:18.198576       1 x:0] 		Network: sandbox, logging: false
+I0613 14:29:18.198584       1 x:0] 		Strace: true, max size: 1024, syscalls: []
+I0613 14:29:18.198592       1 x:0] ***************************
+W0613 14:29:18.200740       1 x:0] AppArmor profile "docker-default" is being ignored
+W0613 14:29:18.200766       1 x:0] Seccomp spec is being ignored
+I0613 14:29:18.201437       1 x:0] Mounting src: "/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/resolv.conf", dst: "/proc/root/etc/resolv.conf", flags: 0x5000
+I0613 14:29:18.201500       1 x:0] Mounting src: "/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/hostname", dst: "/proc/root/etc/hostname", flags: 0x5000
+I0613 14:29:18.201537       1 x:0] Mounting src: "/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/hosts", dst: "/proc/root/etc/hosts", flags: 0x5000
+I0613 14:29:18.225593       1 x:0] Capabilities applied: { effective="chown, dac_override, dac_read_search, fowner, fsetid, sys_chroot" permitted="chown, dac_override, dac_read_search, fowner, fsetid, sys_chroot" inheritable="empty" bounding="chown, dac_override, dac_read_search, fowner, fsetid, sys_chroot" }
+I0613 14:29:18.225639       1 x:0] Execve "/proc/self/exe" again, bye!
+I0613 06:29:18.228022       1 x:0] ***************************
+I0613 06:29:18.228062       1 x:0] Args: [runsc-gofer --root=/var/run/docker/runtime-runsc-kvm/moby --debug=true --log=/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/log.json --log-format=json --debug-log=/tmp/runsc/ --debug-log-format=text --file-access=exclusive --overlay=false --network=sandbox --log-packets=false --platform=kvm --strace=true --strace-syscalls= --strace-log-size=1024 --watchdog-action=LogWarning --panic-signal=-1 --profile=false --net-raw=false --log-fd=3 --debug-log-fd=4 gofer --bundle /run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 --spec-fd=5 --mounts-fd=6 --io-fds=7 --io-fds=8 --io-fds=9 --io-fds=10 --apply-caps=false --setup-root=false]
+I0613 06:29:18.228081       1 x:0] Version release-20190529.1-39-ge03aefd88c42-dirty
+I0613 06:29:18.228088       1 x:0] PID: 1
+I0613 06:29:18.228097       1 x:0] UID: 0, GID: 0
+I0613 06:29:18.228104       1 x:0] Configuration:
+I0613 06:29:18.228110       1 x:0] 		RootDir: /var/run/docker/runtime-runsc-kvm/moby
+I0613 06:29:18.228115       1 x:0] 		Platform: kvm
+I0613 06:29:18.228122       1 x:0] 		FileAccess: exclusive, overlay: false
+I0613 06:29:18.228128       1 x:0] 		Network: sandbox, logging: false
+I0613 06:29:18.228135       1 x:0] 		Strace: true, max size: 1024, syscalls: []
+I0613 06:29:18.228142       1 x:0] ***************************
+W0613 06:29:18.229243       1 x:0] AppArmor profile "docker-default" is being ignored
+W0613 06:29:18.229263       1 x:0] Seccomp spec is being ignored
+D0613 06:29:18.229302       1 x:0] Spec: &{Version:1.0.1-dev Process:0xc000177040 Root:0xc0001a2fe0 Hostname:8496793d4d0a Mounts:[{Destination:/proc Type:proc Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/proc Options:[nosuid noexec nodev]} {Destination:/dev Type:tmpfs Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/tmpfs Options:[nosuid strictatime mode=755 size=65536k]} {Destination:/dev/pts Type:devpts Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/devpts Options:[nosuid noexec newinstance ptmxmode=0666 mode=0620 gid=5]} {Destination:/sys Type:sysfs Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/sysfs Options:[nosuid noexec nodev ro]} {Destination:/sys/fs/cgroup Type:cgroup Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/cgroup Options:[ro nosuid noexec nodev]} {Destination:/dev/mqueue Type:mqueue Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/mqueue Options:[nosuid noexec nodev]} {Destination:/etc/resolv.conf Type:bind Source:/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/resolv.conf Options:[rbind rprivate]} {Destination:/etc/hostname Type:bind Source:/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/hostname Options:[rbind rprivate]} {Destination:/etc/hosts Type:bind Source:/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/hosts Options:[rbind rprivate]} {Destination:/dev/shm Type:bind Source:/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/mounts/shm Options:[rbind rprivate]}] Hooks:0xc00015c0f0 Annotations:map[] Linux:0xc0001782a0 Solaris:<nil> Windows:<nil>}
+D0613 06:29:18.229360       1 x:0] Spec.Hooks: &{Prestart:[{Path:/proc/1466/exe Args:[libnetwork-setkey 8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 e4fe84bac6dbdce3579344f7e93a7401bac629c608c19ed4d5dd939dbd287de0] Env:[] Timeout:<nil>}] Poststart:[] Poststop:[]}
+D0613 06:29:18.229372       1 x:0] Spec.Linux: &{UIDMappings:[] GIDMappings:[] Sysctl:map[] Resources:0xc0001687e0 CgroupsPath:/docker/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222 Namespaces:[{Type:mount Path:} {Type:network Path:} {Type:uts Path:} {Type:pid Path:} {Type:ipc Path:}] Devices:[] Seccomp:0xc000067ac0 RootfsPropagation: MaskedPaths:[/proc/asound /proc/acpi /proc/kcore /proc/keys /proc/latency_stats /proc/timer_list /proc/timer_stats /proc/sched_debug /proc/scsi /sys/firmware] ReadonlyPaths:[/proc/bus /proc/fs /proc/irq /proc/sys /proc/sysrq-trigger] MountLabel: IntelRdt:<nil>}
+D0613 06:29:18.229398       1 x:0] Spec.Linux.Resources.Memory: &{Limit:<nil> Reservation:<nil> Swap:<nil> Kernel:<nil> KernelTCP:<nil> Swappiness:<nil> DisableOOMKiller:0xc0001aae46}
+D0613 06:29:18.229408       1 x:0] Spec.Linux.Resources.CPU: &{Shares:0xc0001aae48 Quota:<nil> Period:<nil> RealtimeRuntime:<nil> RealtimePeriod:<nil> Cpus: Mems:}
+D0613 06:29:18.229420       1 x:0] Spec.Linux.Resources.BlockIO: &{Weight:0xc0001aae58 LeafWeight:<nil> WeightDevice:[] ThrottleReadBpsDevice:[] ThrottleWriteBpsDevice:[] ThrottleReadIOPSDevice:[] ThrottleWriteIOPSDevice:[]}
+D0613 06:29:18.229431       1 x:0] Spec.Linux.Resources.Network: <nil>
+D0613 06:29:18.229439       1 x:0] Spec.Process: &{Terminal:false ConsoleSize:<nil> User:{UID:0 GID:0 AdditionalGids:[] Username:} Args:[/hello] Env:[PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin HOSTNAME=8496793d4d0a] Cwd:/ Capabilities:0xc000144280 Rlimits:[] NoNewPrivileges:false ApparmorProfile:docker-default OOMScoreAdj:0xc0001aab80 SelinuxLabel:}
+D0613 06:29:18.229464       1 x:0] Spec.Root: &{Path:/var/lib/docker/overlay2/aa0bfb5ad159f36c0a3d28e0e569ef1f8c5a3980dcc5ffc7fa8f8c1399147a15/merged Readonly:false}
+D0613 06:29:18.229476       1 x:0] Spec.Mounts: [{Destination:/proc Type:proc Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/proc Options:[nosuid noexec nodev]} {Destination:/dev Type:tmpfs Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/tmpfs Options:[nosuid strictatime mode=755 size=65536k]} {Destination:/dev/pts Type:devpts Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/devpts Options:[nosuid noexec newinstance ptmxmode=0666 mode=0620 gid=5]} {Destination:/sys Type:sysfs Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/sysfs Options:[nosuid noexec nodev ro]} {Destination:/sys/fs/cgroup Type:cgroup Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/cgroup Options:[ro nosuid noexec nodev]} {Destination:/dev/mqueue Type:mqueue Source:/run/containerd/io.containerd.runtime.v1.linux/moby/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/mqueue Options:[nosuid noexec nodev]} {Destination:/etc/resolv.conf Type:bind Source:/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/resolv.conf Options:[rbind rprivate]} {Destination:/etc/hostname Type:bind Source:/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/hostname Options:[rbind rprivate]} {Destination:/etc/hosts Type:bind Source:/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/hosts Options:[rbind rprivate]} {Destination:/dev/shm Type:bind Source:/var/lib/docker/containers/8496793d4d0af146de3e995691612a0f18676f3c62eeb8d63f83873ae2dfa222/mounts/shm Options:[rbind rprivate]}]
+I0613 06:29:18.229529       1 x:0] Process chroot'd to "/root"
+I0613 06:29:18.229551       1 x:0] Serving "/" mapped to "/root" on FD 7 (ro: false)
+I0613 06:29:18.229559       1 x:0] Serving "/etc/resolv.conf" mapped on FD 8 (ro: false)
+I0613 06:29:18.229566       1 x:0] Serving "/etc/hostname" mapped on FD 9 (ro: false)
+I0613 06:29:18.229573       1 x:0] Serving "/etc/hosts" mapped on FD 10 (ro: false)
+I0613 06:29:18.229580       1 x:0] Installing seccomp filters for 53 syscalls (action=kill process)
+D0613 06:29:18.229610       1 x:0] syscall filter read: [] => 0x616c6c6f77
+D0613 06:29:18.229618       1 x:0] syscall filter write: [] => 0x616c6c6f77
+D0613 06:29:18.229625       1 x:0] syscall filter close: [] => 0x616c6c6f77
+D0613 06:29:18.229631       1 x:0] syscall filter fstat: [] => 0x616c6c6f77
+D0613 06:29:18.229639       1 x:0] syscall filter poll: [] => 0x616c6c6f77
+D0613 06:29:18.229645       1 x:0] syscall filter lseek: [] => 0x616c6c6f77
+D0613 06:29:18.229651       1 x:0] syscall filter mmap: [( * * * 0x1  ) ( * * * 0x22  ) ( * * * 0x32  )] => 0x616c6c6f77
+D0613 06:29:18.229673       1 x:0] syscall filter mprotect: [] => 0x616c6c6f77
+D0613 06:29:18.229683       1 x:0] syscall filter munmap: [] => 0x616c6c6f77
+D0613 06:29:18.229689       1 x:0] syscall filter rt_sigprocmask: [] => 0x616c6c6f77
+D0613 06:29:18.229695       1 x:0] syscall filter pread64: [] => 0x616c6c6f77
+D0613 06:29:18.229703       1 x:0] syscall filter pwrite64: [] => 0x616c6c6f77
+D0613 06:29:18.229709       1 x:0] syscall filter sched_yield: [] => 0x616c6c6f77
+D0613 06:29:18.229717       1 x:0] syscall filter madvise: [] => 0x616c6c6f77
+D0613 06:29:18.229723       1 x:0] syscall filter dup: [] => 0x616c6c6f77
+D0613 06:29:18.229729       1 x:0] syscall filter nanosleep: [] => 0x616c6c6f77
+D0613 06:29:18.229735       1 x:0] syscall filter getpid: [] => 0x616c6c6f77
+D0613 06:29:18.229744       1 x:0] syscall filter accept: [] => 0x616c6c6f77
+D0613 06:29:18.229750       1 x:0] syscall filter sendmsg: [( * * 0x4040  )] => 0x616c6c6f77
+D0613 06:29:18.229760       1 x:0] syscall filter recvmsg: [( * * 0x60  ) ( * * 0x62  )] => 0x616c6c6f77
+D0613 06:29:18.229773       1 x:0] syscall filter shutdown: [( * 0x2  )] => 0x616c6c6f77
+D0613 06:29:18.229783       1 x:0] syscall filter clone: [( 0x50f00  )] => 0x616c6c6f77
+D0613 06:29:18.229797       1 x:0] syscall filter exit: [] => 0x616c6c6f77
+D0613 06:29:18.229804       1 x:0] syscall filter fcntl: [( * 0x3  ) ( * 0x4  ) ( * 0x1  )] => 0x616c6c6f77
+D0613 06:29:18.229816       1 x:0] syscall filter fsync: [] => 0x616c6c6f77
+D0613 06:29:18.229822       1 x:0] syscall filter ftruncate: [] => 0x616c6c6f77
+D0613 06:29:18.229828       1 x:0] syscall filter fchmod: [] => 0x616c6c6f77
+D0613 06:29:18.229835       1 x:0] syscall filter gettimeofday: [] => 0x616c6c6f77
+D0613 06:29:18.229841       1 x:0] syscall filter sigaltstack: [] => 0x616c6c6f77
+D0613 06:29:18.229847       1 x:0] syscall filter fstatfs: [] => 0x616c6c6f77
+D0613 06:29:18.229853       1 x:0] syscall filter arch_prctl: [( 0x1003  ) ( 0x1002  )] => 0x616c6c6f77
+D0613 06:29:18.229863       1 x:0] syscall filter gettid: [] => 0x616c6c6f77
+D0613 06:29:18.229869       1 x:0] syscall filter futex: [( * 0x80  * * 0x0  ) ( * 0x81  * * 0x0  )] => 0x616c6c6f77
+D0613 06:29:18.229883       1 x:0] syscall filter getdents64: [] => 0x616c6c6f77
+D0613 06:29:18.229889       1 x:0] syscall filter restart_syscall: [] => 0x616c6c6f77
+D0613 06:29:18.229895       1 x:0] syscall filter clock_gettime: [] => 0x616c6c6f77
+D0613 06:29:18.229903       1 x:0] syscall filter exit_group: [] => 0x616c6c6f77
+D0613 06:29:18.229909       1 x:0] syscall filter epoll_ctl: [] => 0x616c6c6f77
+D0613 06:29:18.229915       1 x:0] syscall filter tgkill: [( 0x1  )] => 0x616c6c6f77
+D0613 06:29:18.229923       1 x:0] syscall filter openat: [] => 0x616c6c6f77
+D0613 06:29:18.229929       1 x:0] syscall filter mkdirat: [] => 0x616c6c6f77
+D0613 06:29:18.229935       1 x:0] syscall filter fchownat: [] => 0x616c6c6f77
+D0613 06:29:18.229943       1 x:0] syscall filter newfstatat: [] => 0x616c6c6f77
+D0613 06:29:18.229949       1 x:0] syscall filter unlinkat: [] => 0x616c6c6f77
+D0613 06:29:18.229956       1 x:0] syscall filter renameat: [] => 0x616c6c6f77
+D0613 06:29:18.229962       1 x:0] syscall filter linkat: [] => 0x616c6c6f77
+D0613 06:29:18.229969       1 x:0] syscall filter symlinkat: [] => 0x616c6c6f77
+D0613 06:29:18.229975       1 x:0] syscall filter readlinkat: [] => 0x616c6c6f77
+D0613 06:29:18.229981       1 x:0] syscall filter utimensat: [] => 0x616c6c6f77
+D0613 06:29:18.229987       1 x:0] syscall filter epoll_pwait: [( * * * * 0x0  )] => 0x616c6c6f77
+D0613 06:29:18.229999       1 x:0] syscall filter fallocate: [( * 0x0  )] => 0x616c6c6f77
+D0613 06:29:18.230008       1 x:0] syscall filter eventfd2: [( 0x0  0x0  )] => 0x616c6c6f77
+D0613 06:29:18.230017       1 x:0] syscall filter sys_318: [] => 0x616c6c6f77
+D0613 06:29:18.230307       1 x:0] Seccomp program dump:
+0: A <- P[4:4]
+1: pc += (A == 3221225534) ? 1 [3] : 0 [2]
+2: pc += 329 [332]
+3: A <- P[0:4]
+4: pc += (A == 91) ? 3 [8] : 0 [5]
+5: pc += (A > 91) ? 0 [6] : 1 [7]
+6: pc += 165 [172]
+7: pc += 1 [9]
+8: ret 2147418112
+9: pc += (A == 28) ? 3 [13] : 0 [10]
+10: pc += (A > 28) ? 0 [11] : 1 [12]
+11: pc += 70 [82]
+12: pc += 1 [14]
+13: ret 2147418112
+14: pc += (A == 9) ? 3 [18] : 0 [15]
+15: pc += (A > 9) ? 0 [16] : 1 [17]
+16: pc += 41 [58]
+17: pc += 16 [34]
+18: A <- P[40:4]
+19: pc += (A == 1) ? 0 [20] : 3 [23]
+20: A <- P[44:4]
+21: pc += (A == 0) ? 0 [22] : 1 [23]
+22: ret 2147418112
+23: A <- P[40:4]
+24: pc += (A == 34) ? 0 [25] : 3 [28]
+25: A <- P[44:4]
+26: pc += (A == 0) ? 0 [27] : 1 [28]
+27: ret 2147418112
+28: A <- P[40:4]
+29: pc += (A == 50) ? 0 [30] : 3 [33]
+30: A <- P[44:4]
+31: pc += (A == 0) ? 0 [32] : 1 [33]
+32: ret 2147418112
+33: pc += 298 [332]
+34: pc += (A == 5) ? 3 [38] : 0 [35]
+35: pc += (A > 5) ? 0 [36] : 1 [37]
+36: pc += 13 [50]
+37: pc += 1 [39]
+38: ret 2147418112
+39: pc += (A == 1) ? 3 [43] : 0 [40]
+40: pc += (A > 1) ? 0 [41] : 1 [42]
+41: pc += 5 [47]
+42: pc += 1 [44]
+43: ret 2147418112
+44: pc += (A == 0) ? 1 [46] : 0 [45]
+45: pc += 286 [332]
+46: ret 2147418112
+47: pc += (A == 3) ? 1 [49] : 0 [48]
+48: pc += 283 [332]
+49: ret 2147418112
+50: pc += (A == 8) ? 3 [54] : 0 [51]
+51: pc += (A > 8) ? 0 [52] : 1 [53]
+52: pc += 279 [332]
+53: pc += 1 [55]
+54: ret 2147418112
+55: pc += (A == 7) ? 1 [57] : 0 [56]
+56: pc += 275 [332]
+57: ret 2147418112
+58: pc += (A == 17) ? 3 [62] : 0 [59]
+59: pc += (A > 17) ? 0 [60] : 1 [61]
+60: pc += 13 [74]
+61: pc += 1 [63]
+62: ret 2147418112
+63: pc += (A == 11) ? 3 [67] : 0 [64]
+64: pc += (A > 11) ? 0 [65] : 1 [66]
+65: pc += 5 [71]
+66: pc += 1 [68]
+67: ret 2147418112
+68: pc += (A == 10) ? 1 [70] : 0 [69]
+69: pc += 262 [332]
+70: ret 2147418112
+71: pc += (A == 14) ? 1 [73] : 0 [72]
+72: pc += 259 [332]
+73: ret 2147418112
+74: pc += (A == 24) ? 3 [78] : 0 [75]
+75: pc += (A > 24) ? 0 [76] : 1 [77]
+76: pc += 255 [332]
+77: pc += 1 [79]
+78: ret 2147418112
+79: pc += (A == 18) ? 1 [81] : 0 [80]
+80: pc += 251 [332]
+81: ret 2147418112
+82: pc += (A == 48) ? 3 [86] : 0 [83]
+83: pc += (A > 48) ? 0 [84] : 1 [85]
+84: pc += 46 [131]
+85: pc += 6 [92]
+86: A <- P[24:4]
+87: pc += (A == 2) ? 0 [88] : 3 [91]
+88: A <- P[28:4]
+89: pc += (A == 0) ? 0 [90] : 1 [91]
+90: ret 2147418112
+91: pc += 240 [332]
+92: pc += (A == 43) ? 3 [96] : 0 [93]
+93: pc += (A > 43) ? 0 [94] : 1 [95]
+94: pc += 13 [108]
+95: pc += 1 [97]
+96: ret 2147418112
+97: pc += (A == 35) ? 3 [101] : 0 [98]
+98: pc += (A > 35) ? 0 [99] : 1 [100]
+99: pc += 5 [105]
+100: pc += 1 [102]
+101: ret 2147418112
+102: pc += (A == 32) ? 1 [104] : 0 [103]
+103: pc += 228 [332]
+104: ret 2147418112
+105: pc += (A == 39) ? 1 [107] : 0 [106]
+106: pc += 225 [332]
+107: ret 2147418112
+108: pc += (A == 47) ? 3 [112] : 0 [109]
+109: pc += (A > 47) ? 0 [110] : 1 [111]
+110: pc += 221 [332]
+111: pc += 11 [123]
+112: A <- P[32:4]
+113: pc += (A == 96) ? 0 [114] : 3 [117]
+114: A <- P[36:4]
+115: pc += (A == 0) ? 0 [116] : 1 [117]
+116: ret 2147418112
+117: A <- P[32:4]
+118: pc += (A == 98) ? 0 [119] : 3 [122]
+119: A <- P[36:4]
+120: pc += (A == 0) ? 0 [121] : 1 [122]
+121: ret 2147418112
+122: pc += 209 [332]
+123: pc += (A == 46) ? 1 [125] : 0 [124]
+124: pc += 207 [332]
+125: A <- P[32:4]
+126: pc += (A == 16448) ? 0 [127] : 3 [130]
+127: A <- P[36:4]
+128: pc += (A == 0) ? 0 [129] : 1 [130]
+129: ret 2147418112
+130: pc += 201 [332]
+131: pc += (A == 72) ? 3 [135] : 0 [132]
+132: pc += (A > 72) ? 0 [133] : 1 [134]
+133: pc += 30 [164]
+134: pc += 16 [151]
+135: A <- P[24:4]
+136: pc += (A == 3) ? 0 [137] : 3 [140]
+137: A <- P[28:4]
+138: pc += (A == 0) ? 0 [139] : 1 [140]
+139: ret 2147418112
+140: A <- P[24:4]
+141: pc += (A == 4) ? 0 [142] : 3 [145]
+142: A <- P[28:4]
+143: pc += (A == 0) ? 0 [144] : 1 [145]
+144: ret 2147418112
+145: A <- P[24:4]
+146: pc += (A == 1) ? 0 [147] : 3 [150]
+147: A <- P[28:4]
+148: pc += (A == 0) ? 0 [149] : 1 [150]
+149: ret 2147418112
+150: pc += 181 [332]
+151: pc += (A == 60) ? 3 [155] : 0 [152]
+152: pc += (A > 60) ? 0 [153] : 1 [154]
+153: pc += 178 [332]
+154: pc += 1 [156]
+155: ret 2147418112
+156: pc += (A == 56) ? 1 [158] : 0 [157]
+157: pc += 174 [332]
+158: A <- P[16:4]
+159: pc += (A == 331520) ? 0 [160] : 3 [163]
+160: A <- P[20:4]
+161: pc += (A == 0) ? 0 [162] : 1 [163]
+162: ret 2147418112
+163: pc += 168 [332]
+164: pc += (A == 77) ? 3 [168] : 0 [165]
+165: pc += (A > 77) ? 0 [166] : 1 [167]
+166: pc += 165 [332]
+167: pc += 1 [169]
+168: ret 2147418112
+169: pc += (A == 74) ? 1 [171] : 0 [170]
+170: pc += 161 [332]
+171: ret 2147418112
+172: pc += (A == 258) ? 3 [176] : 0 [173]
+173: pc += (A > 258) ? 0 [174] : 1 [175]
+174: pc += 88 [263]
+175: pc += 1 [177]
+176: ret 2147418112
+177: pc += (A == 217) ? 3 [181] : 0 [178]
+178: pc += (A > 217) ? 0 [179] : 1 [180]
+179: pc += 54 [234]
+180: pc += 1 [182]
+181: ret 2147418112
+182: pc += (A == 158) ? 3 [186] : 0 [183]
+183: pc += (A > 158) ? 0 [184] : 1 [185]
+184: pc += 23 [208]
+185: pc += 11 [197]
+186: A <- P[16:4]
+187: pc += (A == 4099) ? 0 [188] : 3 [191]
+188: A <- P[20:4]
+189: pc += (A == 0) ? 0 [190] : 1 [191]
+190: ret 2147418112
+191: A <- P[16:4]
+192: pc += (A == 4098) ? 0 [193] : 3 [196]
+193: A <- P[20:4]
+194: pc += (A == 0) ? 0 [195] : 1 [196]
+195: ret 2147418112
+196: pc += 135 [332]
+197: pc += (A == 131) ? 3 [201] : 0 [198]
+198: pc += (A > 131) ? 0 [199] : 1 [200]
+199: pc += 5 [205]
+200: pc += 1 [202]
+201: ret 2147418112
+202: pc += (A == 96) ? 1 [204] : 0 [203]
+203: pc += 128 [332]
+204: ret 2147418112
+205: pc += (A == 138) ? 1 [207] : 0 [206]
+206: pc += 125 [332]
+207: ret 2147418112
+208: pc += (A == 202) ? 3 [212] : 0 [209]
+209: pc += (A > 202) ? 0 [210] : 1 [211]
+210: pc += 121 [332]
+211: pc += 19 [231]
+212: A <- P[24:4]
+213: pc += (A == 128) ? 0 [214] : 7 [221]
+214: A <- P[28:4]
+215: pc += (A == 0) ? 0 [216] : 5 [221]
+216: A <- P[48:4]
+217: pc += (A == 0) ? 0 [218] : 3 [221]
+218: A <- P[52:4]
+219: pc += (A == 0) ? 0 [220] : 1 [221]
+220: ret 2147418112
+221: A <- P[24:4]
+222: pc += (A == 129) ? 0 [223] : 7 [230]
+223: A <- P[28:4]
+224: pc += (A == 0) ? 0 [225] : 5 [230]
+225: A <- P[48:4]
+226: pc += (A == 0) ? 0 [227] : 3 [230]
+227: A <- P[52:4]
+228: pc += (A == 0) ? 0 [229] : 1 [230]
+229: ret 2147418112
+230: pc += 101 [332]
+231: pc += (A == 186) ? 1 [233] : 0 [232]
+232: pc += 99 [332]
+233: ret 2147418112
+234: pc += (A == 233) ? 3 [238] : 0 [235]
+235: pc += (A > 233) ? 0 [236] : 1 [237]
+236: pc += 13 [250]
+237: pc += 1 [239]
+238: ret 2147418112
+239: pc += (A == 228) ? 3 [243] : 0 [240]
+240: pc += (A > 228) ? 0 [241] : 1 [242]
+241: pc += 5 [247]
+242: pc += 1 [244]
+243: ret 2147418112
+244: pc += (A == 219) ? 1 [246] : 0 [245]
+245: pc += 86 [332]
+246: ret 2147418112
+247: pc += (A == 231) ? 1 [249] : 0 [248]
+248: pc += 83 [332]
+249: ret 2147418112
+250: pc += (A == 257) ? 3 [254] : 0 [251]
+251: pc += (A > 257) ? 0 [252] : 1 [253]
+252: pc += 79 [332]
+253: pc += 1 [255]
+254: ret 2147418112
+255: pc += (A == 234) ? 1 [257] : 0 [256]
+256: pc += 75 [332]
+257: A <- P[16:4]
+258: pc += (A == 1) ? 0 [259] : 3 [262]
+259: A <- P[20:4]
+260: pc += (A == 0) ? 0 [261] : 1 [262]
+261: ret 2147418112
+262: pc += 69 [332]
+263: pc += (A == 267) ? 3 [267] : 0 [264]
+264: pc += (A > 267) ? 0 [265] : 1 [266]
+265: pc += 26 [292]
+266: pc += 1 [268]
+267: ret 2147418112
+268: pc += (A == 264) ? 3 [272] : 0 [269]
+269: pc += (A > 264) ? 0 [270] : 1 [271]
+270: pc += 13 [284]
+271: pc += 1 [273]
+272: ret 2147418112
+273: pc += (A == 262) ? 3 [277] : 0 [274]
+274: pc += (A > 262) ? 0 [275] : 1 [276]
+275: pc += 5 [281]
+276: pc += 1 [278]
+277: ret 2147418112
+278: pc += (A == 260) ? 1 [280] : 0 [279]
+279: pc += 52 [332]
+280: ret 2147418112
+281: pc += (A == 263) ? 1 [283] : 0 [282]
+282: pc += 49 [332]
+283: ret 2147418112
+284: pc += (A == 266) ? 3 [288] : 0 [285]
+285: pc += (A > 266) ? 0 [286] : 1 [287]
+286: pc += 45 [332]
+287: pc += 1 [289]
+288: ret 2147418112
+289: pc += (A == 265) ? 1 [291] : 0 [290]
+290: pc += 41 [332]
+291: ret 2147418112
+292: pc += (A == 285) ? 3 [296] : 0 [293]
+293: pc += (A > 285) ? 0 [294] : 1 [295]
+294: pc += 20 [315]
+295: pc += 6 [302]
+296: A <- P[24:4]
+297: pc += (A == 0) ? 0 [298] : 3 [301]
+298: A <- P[28:4]
+299: pc += (A == 0) ? 0 [300] : 1 [301]
+300: ret 2147418112
+301: pc += 30 [332]
+302: pc += (A == 281) ? 3 [306] : 0 [303]
+303: pc += (A > 281) ? 0 [304] : 1 [305]
+304: pc += 27 [332]
+305: pc += 6 [312]
+306: A <- P[48:4]
+307: pc += (A == 0) ? 0 [308] : 3 [311]
+308: A <- P[52:4]
+309: pc += (A == 0) ? 0 [310] : 1 [311]
+310: ret 2147418112
+311: pc += 20 [332]
+312: pc += (A == 280) ? 1 [314] : 0 [313]
+313: pc += 18 [332]
+314: ret 2147418112
+315: pc += (A == 318) ? 3 [319] : 0 [316]
+316: pc += (A > 318) ? 0 [317] : 1 [318]
+317: pc += 14 [332]
+318: pc += 1 [320]
+319: ret 2147418112
+320: pc += (A == 290) ? 1 [322] : 0 [321]
+321: pc += 10 [332]
+322: A <- P[16:4]
+323: pc += (A == 0) ? 0 [324] : 7 [331]
+324: A <- P[20:4]
+325: pc += (A == 0) ? 0 [326] : 5 [331]
+326: A <- P[24:4]
+327: pc += (A == 0) ? 0 [328] : 3 [331]
+328: A <- P[28:4]
+329: pc += (A == 0) ? 0 [330] : 1 [331]
+330: ret 2147418112
+331: pc += 0 [332]
+332: ret 2147483648
+
+I0613 06:29:18.230491       1 x:0] Seccomp filters installed.
+D0613 06:29:18.454364       1 x:0] recv [FD 7] [Tag 000001] Tversion{MSize: 1048576, Version: 9P2000.L.Google.7}
+D0613 06:29:18.454621       1 x:0] send [FD 7] [Tag 000001] Rversion{MSize: 1048576, Version: 9P2000.L.Google.7}
+D0613 06:29:18.455037       1 x:0] recv [FD 7] [Tag 000001] Tattach{FID: 1, AuthFID: 4294967295, UserName: , AttachName: /, UID: 4294967295}
+D0613 06:29:18.455296       1 x:0] host inode 940ad4 on device 36 mapped to virtual inode 940ad4
+D0613 06:29:18.455404       1 x:0] send [FD 7] [Tag 000001] Rattach{QID: QID{Type: 128, Version: 0, Path: 9702100}}
+D0613 06:29:18.455821       1 x:0] recv [FD 7] [Tag 000001] Tgetattr{FID: 1, AttrMask: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime INo Size Blocks BTime Gen DataVersion}}
+D0613 06:29:18.455952       1 x:0] host inode 940ad4 on device 36 mapped to virtual inode 940ad4
+D0613 06:29:18.456054       1 x:0] send [FD 7] [Tag 000001] Rgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, QID: QID{Type: 128, Version: 0, Path: 9702100}, Attr: Attr{Mode: 0o40755, UID: 0, GID: 0, NLink: 1, RDev: 0, Size: 4096, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407357, NanoSec: 28036880}, MTime: {Sec: 1560407357, NanoSec: 28036880}, CTime: {Sec: 1560407357, NanoSec: 28036880}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}}
+D0613 06:29:18.457086       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 1, NewFID: 2, Names: [dev]}
+D0613 06:29:18.457242       1 x:0] host inode 940ae0 on device 36 mapped to virtual inode 940ae0
+D0613 06:29:18.457290       1 x:0] host inode 940ae0 on device 36 mapped to virtual inode 940ae0
+D0613 06:29:18.457395       1 x:0] send [FD 7] [Tag 000001] Rwalkgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, Attr: Attr{Mode: 0o40755, UID: 0, GID: 0, NLink: 4, RDev: 0, Size: 4096, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407356, NanoSec: 916041110}, MTime: {Sec: 1560407356, NanoSec: 916041110}, CTime: {Sec: 1560407356, NanoSec: 916041110}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}, QIDs: [QID{Type: 128, Version: 0, Path: 9702112}]}
+D0613 06:29:18.459022       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 1, NewFID: 3, Names: [proc]}
+D0613 06:29:18.459210       1 x:0] host inode 940ae4 on device 36 mapped to virtual inode 940ae4
+D0613 06:29:18.459262       1 x:0] host inode 940ae4 on device 36 mapped to virtual inode 940ae4
+D0613 06:29:18.459420       1 x:0] send [FD 7] [Tag 000001] Rwalkgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, Attr: Attr{Mode: 0o40755, UID: 0, GID: 0, NLink: 2, RDev: 0, Size: 4096, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407356, NanoSec: 916041110}, MTime: {Sec: 1560407356, NanoSec: 916041110}, CTime: {Sec: 1560407356, NanoSec: 916041110}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}, QIDs: [QID{Type: 128, Version: 0, Path: 9702116}]}
+D0613 06:29:18.460293       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 1, NewFID: 4, Names: [sys]}
+D0613 06:29:18.460454       1 x:0] host inode 940ae5 on device 36 mapped to virtual inode 940ae5
+D0613 06:29:18.460503       1 x:0] host inode 940ae5 on device 36 mapped to virtual inode 940ae5
+D0613 06:29:18.460607       1 x:0] send [FD 7] [Tag 000001] Rwalkgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, Attr: Attr{Mode: 0o40755, UID: 0, GID: 0, NLink: 2, RDev: 0, Size: 4096, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407356, NanoSec: 916041110}, MTime: {Sec: 1560407356, NanoSec: 916041110}, CTime: {Sec: 1560407356, NanoSec: 916041110}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}, QIDs: [QID{Type: 128, Version: 0, Path: 9702117}]}
+D0613 06:29:18.461376       1 x:0] recv [FD 8] [Tag 000001] Tversion{MSize: 1048576, Version: 9P2000.L.Google.7}
+D0613 06:29:18.461476       1 x:0] send [FD 8] [Tag 000001] Rversion{MSize: 1048576, Version: 9P2000.L.Google.7}
+D0613 06:29:18.461879       1 x:0] recv [FD 8] [Tag 000001] Tattach{FID: 1, AuthFID: 4294967295, UserName: , AttachName: /, UID: 4294967295}
+D0613 06:29:18.462002       1 x:0] host inode 840b27 on device 815 mapped to virtual inode 840b27
+D0613 06:29:18.462152       1 x:0] send [FD 8] [Tag 000001] Rattach{QID: QID{Type: 0, Version: 0, Path: 8653607}}
+D0613 06:29:18.462563       1 x:0] recv [FD 8] [Tag 000001] Tgetattr{FID: 1, AttrMask: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime INo Size Blocks BTime Gen DataVersion}}
+D0613 06:29:18.462657       1 x:0] host inode 840b27 on device 815 mapped to virtual inode 840b27
+D0613 06:29:18.462802       1 x:0] send [FD 8] [Tag 000001] Rgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, QID: QID{Type: 0, Version: 0, Path: 8653607}, Attr: Attr{Mode: 0o100644, UID: 0, GID: 0, NLink: 1, RDev: 0, Size: 588, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407357, NanoSec: 744009837}, MTime: {Sec: 1560407357, NanoSec: 744009837}, CTime: {Sec: 1560407357, NanoSec: 880004701}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}}
+D0613 06:29:18.463298       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 1, NewFID: 5, Names: [etc]}
+D0613 06:29:18.463419       1 x:0] host inode 940adb on device 36 mapped to virtual inode 940adb
+D0613 06:29:18.463464       1 x:0] host inode 940adb on device 36 mapped to virtual inode 940adb
+D0613 06:29:18.463542       1 x:0] send [FD 7] [Tag 000001] Rwalkgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, Attr: Attr{Mode: 0o40755, UID: 0, GID: 0, NLink: 2, RDev: 0, Size: 4096, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407356, NanoSec: 916041110}, MTime: {Sec: 1560407356, NanoSec: 916041110}, CTime: {Sec: 1560407356, NanoSec: 916041110}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}, QIDs: [QID{Type: 128, Version: 0, Path: 9702107}]}
+D0613 06:29:18.464020       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 5, NewFID: 6, Names: [resolv.conf]}
+D0613 06:29:18.464141       1 x:0] host inode 840b27 on device 815 mapped to virtual inode 100000000840b27
+D0613 06:29:18.464186       1 x:0] host inode 840b27 on device 815 mapped to virtual inode 100000000840b27
+D0613 06:29:18.464275       1 x:0] send [FD 7] [Tag 000001] Rwalkgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, Attr: Attr{Mode: 0o100644, UID: 0, GID: 0, NLink: 1, RDev: 0, Size: 588, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407357, NanoSec: 744009837}, MTime: {Sec: 1560407357, NanoSec: 744009837}, CTime: {Sec: 1560407357, NanoSec: 880004701}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}, QIDs: [QID{Type: 0, Version: 0, Path: 72057594046581543}]}
+D0613 06:29:18.464884       1 x:0] recv [FD 9] [Tag 000001] Tversion{MSize: 1048576, Version: 9P2000.L.Google.7}
+D0613 06:29:18.464996       1 x:0] send [FD 9] [Tag 000001] Rversion{MSize: 1048576, Version: 9P2000.L.Google.7}
+D0613 06:29:18.465355       1 x:0] recv [FD 9] [Tag 000001] Tattach{FID: 1, AuthFID: 4294967295, UserName: , AttachName: /, UID: 4294967295}
+D0613 06:29:18.465506       1 x:0] host inode 840b28 on device 815 mapped to virtual inode 840b28
+D0613 06:29:18.465633       1 x:0] send [FD 9] [Tag 000001] Rattach{QID: QID{Type: 0, Version: 0, Path: 8653608}}
+D0613 06:29:18.466041       1 x:0] recv [FD 9] [Tag 000001] Tgetattr{FID: 1, AttrMask: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime INo Size Blocks BTime Gen DataVersion}}
+D0613 06:29:18.466152       1 x:0] host inode 840b28 on device 815 mapped to virtual inode 840b28
+D0613 06:29:18.466278       1 x:0] send [FD 9] [Tag 000001] Rgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, QID: QID{Type: 0, Version: 0, Path: 8653608}, Attr: Attr{Mode: 0o100644, UID: 0, GID: 0, NLink: 1, RDev: 0, Size: 13, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407357, NanoSec: 880004701}, MTime: {Sec: 1560407357, NanoSec: 880004701}, CTime: {Sec: 1560407357, NanoSec: 880004701}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}}
+D0613 06:29:18.466724       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 5, NewFID: 7, Names: [hostname]}
+D0613 06:29:18.466855       1 x:0] host inode 840b28 on device 815 mapped to virtual inode 100000000840b28
+D0613 06:29:18.466916       1 x:0] host inode 840b28 on device 815 mapped to virtual inode 100000000840b28
+D0613 06:29:18.467020       1 x:0] send [FD 7] [Tag 000001] Rwalkgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, Attr: Attr{Mode: 0o100644, UID: 0, GID: 0, NLink: 1, RDev: 0, Size: 13, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407357, NanoSec: 880004701}, MTime: {Sec: 1560407357, NanoSec: 880004701}, CTime: {Sec: 1560407357, NanoSec: 880004701}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}, QIDs: [QID{Type: 0, Version: 0, Path: 72057594046581544}]}
+D0613 06:29:18.467662       1 x:0] recv [FD 10] [Tag 000001] Tversion{MSize: 1048576, Version: 9P2000.L.Google.7}
+D0613 06:29:18.467762       1 x:0] send [FD 10] [Tag 000001] Rversion{MSize: 1048576, Version: 9P2000.L.Google.7}
+D0613 06:29:18.468149       1 x:0] recv [FD 10] [Tag 000001] Tattach{FID: 1, AuthFID: 4294967295, UserName: , AttachName: /, UID: 4294967295}
+D0613 06:29:18.468241       1 x:0] host inode 840b25 on device 815 mapped to virtual inode 840b25
+D0613 06:29:18.468345       1 x:0] send [FD 10] [Tag 000001] Rattach{QID: QID{Type: 0, Version: 0, Path: 8653605}}
+D0613 06:29:18.468736       1 x:0] recv [FD 10] [Tag 000001] Tgetattr{FID: 1, AttrMask: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime INo Size Blocks BTime Gen DataVersion}}
+D0613 06:29:18.468830       1 x:0] host inode 840b25 on device 815 mapped to virtual inode 840b25
+D0613 06:29:18.468957       1 x:0] send [FD 10] [Tag 000001] Rgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, QID: QID{Type: 0, Version: 0, Path: 8653605}, Attr: Attr{Mode: 0o100644, UID: 0, GID: 0, NLink: 1, RDev: 0, Size: 174, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407357, NanoSec: 744009837}, MTime: {Sec: 1560407357, NanoSec: 744009837}, CTime: {Sec: 1560407357, NanoSec: 880004701}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}}
+D0613 06:29:18.469409       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 5, NewFID: 8, Names: [hosts]}
+D0613 06:29:18.469531       1 x:0] host inode 840b25 on device 815 mapped to virtual inode 100000000840b25
+D0613 06:29:18.469576       1 x:0] host inode 840b25 on device 815 mapped to virtual inode 100000000840b25
+D0613 06:29:18.469663       1 x:0] send [FD 7] [Tag 000001] Rwalkgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, Attr: Attr{Mode: 0o100644, UID: 0, GID: 0, NLink: 1, RDev: 0, Size: 174, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1560407357, NanoSec: 744009837}, MTime: {Sec: 1560407357, NanoSec: 744009837}, CTime: {Sec: 1560407357, NanoSec: 880004701}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}, QIDs: [QID{Type: 0, Version: 0, Path: 72057594046581541}]}
+D0613 06:29:18.470277       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 1, NewFID: 9, Names: [__runsc_containers__]}
+D0613 06:29:18.470438       1 x:0] send [FD 7] [Tag 000001] Rlerror{Error: 2}
+D0613 06:29:18.470926       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 1, NewFID: 9, Names: [tmp]}
+D0613 06:29:18.471066       1 x:0] send [FD 7] [Tag 000001] Rlerror{Error: 2}
+D0613 06:29:18.471832       1 x:0] recv [FD 7] [Tag 000001] Twalkgetattr{FID: 1, NewFID: 9, Names: [hello]}
+D0613 06:29:18.472008       1 x:0] host inode 74029c on device 36 mapped to virtual inode 74029c
+D0613 06:29:18.472059       1 x:0] host inode 74029c on device 36 mapped to virtual inode 74029c
+D0613 06:29:18.472169       1 x:0] send [FD 7] [Tag 000001] Rwalkgetattr{Valid: AttrMask{with: Mode NLink UID GID RDev ATime MTime CTime Size Blocks}, Attr: Attr{Mode: 0o100775, UID: 0, GID: 0, NLink: 1, RDev: 0, Size: 1840, BlockSize: 4096, Blocks: 8, ATime: {Sec: 1546306076, NanoSec: 0}, MTime: {Sec: 1546306076, NanoSec: 0}, CTime: {Sec: 1559093511, NanoSec: 68004959}, BTime: {Sec: 0, NanoSec: 0}, Gen: 0, DataVersion: 0}, QIDs: [QID{Type: 0, Version: 0, Path: 7602844}]}
+D0613 06:29:18.472640       1 x:0] recv [FD 7] [Tag 000001] Twalk{FID: 9, NewFID: 10, Names: []}
+D0613 06:29:18.472775       1 x:0] host inode 74029c on device 36 mapped to virtual inode 74029c
+D0613 06:29:18.472841       1 x:0] send [FD 7] [Tag 000001] Rwalk{QIDs: []}
+D0613 06:29:18.473253       1 x:0] recv [FD 7] [Tag 000001] Tlopen{FID: 10, Flags: ReadOnly}
+D0613 06:29:18.473370       1 x:0] Open reusing control file, mode: ReadOnly, "/hello"
+D0613 06:29:18.473432       1 x:0] host inode 74029c on device 36 mapped to virtual inode 74029c
+D0613 06:29:18.473492       1 x:0] send [FD 7] [Tag 000001] Rlopen{QID: QID{Type: 0, Version: 0, Path: 7602844}, IoUnit: 0, File: &{{28}}}
+W0613 06:29:18.551569       1 x:0] FATAL ERROR: P9 server returned error. Gofer is shutting down. FD: 10, err: EOF
+P9 server returned error. Gofer is shutting down. FD: 10, err: EOF
