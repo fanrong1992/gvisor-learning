@@ -46,20 +46,20 @@ HOST
 
 ```go
 var AMD64 = &kernel.SyscallTable{
-	OS:   abi.Linux,
-	Arch: arch.AMD64,
-	Version: kernel.Version{
-		Sysname: "Linux",
-		Release: "4.4",
-		Version: "#1 SMP Sun Jan 10 15:06:54 PST 2016",
-	},
-	AuditNumber: _AUDIT_ARCH_X86_64,
-	Table: map[uintptr]kernel.SyscallFn{
+    OS:   abi.Linux,
+    Arch: arch.AMD64,
+    Version: kernel.Version{
+        Sysname: "Linux",
+        Release: "4.4",
+        Version: "#1 SMP Sun Jan 10 15:06:54 PST 2016",
+    },
+    AuditNumber: _AUDIT_ARCH_X86_64,
+    Table: map[uintptr]kernel.SyscallFn{
         0:  Read,
-		1:  Write,
-		2:  Open,
-		3:  Close,
-		4:  Stat,
+        1:  Write,
+        2:  Open,
+        3:  Close,
+        4:  Stat,
         // ...
         400: Square,
     }
@@ -87,8 +87,8 @@ import (
 
 // Square returns the square of arg[0]
 func Square(t *kernel.Task, args arch.SyscallArguments) (uintptr, *kernel.SyscallControl, error) {
-	num := args[0].Int()
-	num = num * num
+    num := args[0].Int()
+    num = num * num
     return uintptr(num), nil, nil
 }
 ```
