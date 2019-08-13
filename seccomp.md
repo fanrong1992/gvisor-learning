@@ -1,12 +1,12 @@
 # 关于 Seccomp 的研究
 
-#### seccomp in Linux
+### seccomp in Linux
 
 参考[seccomp基本功能](https://github.com/hujikoy/hello-seccomp)一文，以及相关的参考资料，大致明确 **seccomp** 的具体细节。
 
 
 
-#### seccomp in gVisor
+### seccomp in gVisor
 
 从日志文件 `xxx.boot` 文件的输出入手，定位`Installing seccomp filters for 55 syscalls`这句话，找到了`pkg/seccomp/seccomp.go`文件，现在研究一下上下文的背景。
 
@@ -14,7 +14,7 @@
 
 
 
-×× 疑问：如果guest application进行的系统调用sentry没有，sentry会做什么操作？
+**×× 疑问：如果guest application进行的系统调用sentry没有，sentry会做什么操作？**
 
 
 
@@ -118,5 +118,101 @@ Installing seccomp filters for 53 syscalls (action=kill process)
 
 此时 rules 变量的长度是 53，defaultAction 变量的值是 `linux.SECCOMP_RET_KILL_PROCESS`。
 
-从这个输出的语句可以知道，rules 当中的值，就是 seccomp filter 允许的系统调用，因此接下来先看看这个变量里面到底有那些 syscall。
+#### gvisor 允许了什么 syscall
 
+从这个输出的语句可以知道，`rules` 当中的值，就是 seccomp filter 允许的系统调用，因此接下来先看看**这个变量——`rules`里面到底有那些 syscall**。
+
+需要做的有以下两步
+
+* 寻找调用关系，找到函数的调用入口
+* 研究 `rules` 变量的数据结构，方便查询其中的内容
+
+##### 寻找调用关系
+
+根据之前的 print stack trace，可以知道有 filter.install() -> seccomp.install() 这样一个过程。回去看 filter.install() 这个函数
+
+```go
+// Install installs seccomp filters for based on the given platform.
+func Install(opt Options) error {
+	s := allowedSyscalls
+	s.Merge(controlServerFilters(opt.ControllerFD))
+
+	...
+
+	return seccomp.Install(s)
+}
+```
+
+具体的细节先不去研究，我们注意到最终调用 `seccomp.install()` 函数的是 `return seccomp.Install(s)` 这句话，那么这个变量 `s` 便是包含了允许的所有 syscall。
+
+观察 `s` 的初始化部分
+
+```go
+s := allowedSyscalls
+```
+
+搜索 `allowedSyscalls` 的出处，在 `runsc/boot/filter/config.go` 这个文件当中找到了定义
+
+```go
+// allowedSyscalls is the set of syscalls executed by the Sentry to the host OS.
+var allowedSyscalls = seccomp.SyscallRules{
+	// 太多了省略不写
+    ...
+```
+
+根据在这个变量当中添加的系统调用，整理出来的有如下所示
+
+| syscall number | syscall name  | syscall code        |
+| -------------- | ------------- | ------------------- |
+| 158            | *arch_prctl   | SYS_ARCH_PRCTL      |
+| 228            | clock_gettime | SYS_CLOCK_GETTIME   |
+| 56             | *clone        | SYS_CLONE           |
+| 3              | close         | SYS_CLOSE           |
+| 32             | dup           | SYS_DUP             |
+| 291            | epoll_create1 | SYS_EPOLL_CREATE1   |
+| 233            | epoll_ctl     | SYS_EPOLL_CTL       |
+| 281            | *epoll_pwait  | SYS_EPOLL_PWAIT     |
+| 290            | *eventfd2     | SYS_EVENTFD2        |
+| 60             | exit          | SYS_EXIT            |
+| 231            | exit_group    | SYS_EXIT_GROUP      |
+| 285            | fallocate     | SYS_FALLOCATE       |
+| 91             | fchmod        | SYS_FCHMOD          |
+| 72             | *fcntl        | SYS_FCNTL           |
+|                |               | SYS_FSTAT           |
+|                |               | SYS_FSYNC           |
+|                |               | SYS_FTRUNCATE       |
+|                | *             | SYS_FUTEX           |
+|                |               | SYS_GETPID          |
+| 318            | getrandom     | unix.SYS_GETRANDOM  |
+|                | *             | SYS_GETSOCKOPT      |
+|                |               | SYS_GETTID          |
+|                |               | SYS_GETTIMEOFDAY    |
+|                | *             | SYS_IOCTL           |
+|                |               | SYS_LSEEK           |
+|                |               | SYS_MADVISE         |
+|                |               | SYS_MINCORE         |
+|                | *             | SYS_MMAP            |
+|                |               | SYS_MPROTECT        |
+|                |               | SYS_MUNMAP          |
+|                |               | SYS_NANOSLEEP       |
+|                |               | SYS_POLL            |
+|                |               | SYS_PREAD64         |
+|                |               | SYS_PWRITE64        |
+|                |               | SYS_READ            |
+|                | *             | SYS_RECVMSG         |
+|                | *             | SYS_RECVMMSG        |
+|                |               | SYS_RESTART_SYSCALL |
+|                |               | SYS_RT_SIGACTION    |
+|                |               | SYS_RT_SIGPROCMASK  |
+|                |               | SYS_RT_SIGRETURN    |
+|                |               | SYS_SCHED_YIELD     |
+|                | *             | SYS_SENDMSG         |
+|                |               | SYS_SETITIMER       |
+|                | *             | SYS_SHUTDOWN        |
+|                |               | SYS_SIGALTSTACK     |
+|                |               | SYS_SYNC_FILE_RANGE |
+|                | *             | SYS_TGKILL          |
+|                |               | SYS_WRITE           |
+|                | *             | SYS_WRITEV          |
+
+根据Linux Shell 5.2 版本的 [syscall table](https://elixir.bootlin.com/linux/v5.2.8/source/arch/x86/entry/syscalls/syscall_64.tbl)，统计出上述共 51 个系统调用。
