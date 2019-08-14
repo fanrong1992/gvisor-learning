@@ -145,6 +145,8 @@ func Install(opt Options) error {
 
 具体的细节先不去研究，我们注意到最终调用 `seccomp.install()` 函数的是 `return seccomp.Install(s)` 这句话，那么这个变量 `s` 便是包含了允许的所有 syscall。
 
+##### 研究变量
+
 观察 `s` 的初始化部分
 
 ```go
@@ -162,57 +164,90 @@ var allowedSyscalls = seccomp.SyscallRules{
 
 根据在这个变量当中添加的系统调用，整理出来的有如下所示
 
-| syscall number | syscall name  | syscall code        |
-| -------------- | ------------- | ------------------- |
-| 158            | *arch_prctl   | SYS_ARCH_PRCTL      |
-| 228            | clock_gettime | SYS_CLOCK_GETTIME   |
-| 56             | *clone        | SYS_CLONE           |
-| 3              | close         | SYS_CLOSE           |
-| 32             | dup           | SYS_DUP             |
-| 291            | epoll_create1 | SYS_EPOLL_CREATE1   |
-| 233            | epoll_ctl     | SYS_EPOLL_CTL       |
-| 281            | *epoll_pwait  | SYS_EPOLL_PWAIT     |
-| 290            | *eventfd2     | SYS_EVENTFD2        |
-| 60             | exit          | SYS_EXIT            |
-| 231            | exit_group    | SYS_EXIT_GROUP      |
-| 285            | fallocate     | SYS_FALLOCATE       |
-| 91             | fchmod        | SYS_FCHMOD          |
-| 72             | *fcntl        | SYS_FCNTL           |
-|                |               | SYS_FSTAT           |
-|                |               | SYS_FSYNC           |
-|                |               | SYS_FTRUNCATE       |
-|                | *             | SYS_FUTEX           |
-|                |               | SYS_GETPID          |
-| 318            | getrandom     | unix.SYS_GETRANDOM  |
-|                | *             | SYS_GETSOCKOPT      |
-|                |               | SYS_GETTID          |
-|                |               | SYS_GETTIMEOFDAY    |
-|                | *             | SYS_IOCTL           |
-|                |               | SYS_LSEEK           |
-|                |               | SYS_MADVISE         |
-|                |               | SYS_MINCORE         |
-|                | *             | SYS_MMAP            |
-|                |               | SYS_MPROTECT        |
-|                |               | SYS_MUNMAP          |
-|                |               | SYS_NANOSLEEP       |
-|                |               | SYS_POLL            |
-|                |               | SYS_PREAD64         |
-|                |               | SYS_PWRITE64        |
-|                |               | SYS_READ            |
-|                | *             | SYS_RECVMSG         |
-|                | *             | SYS_RECVMMSG        |
-|                |               | SYS_RESTART_SYSCALL |
-|                |               | SYS_RT_SIGACTION    |
-|                |               | SYS_RT_SIGPROCMASK  |
-|                |               | SYS_RT_SIGRETURN    |
-|                |               | SYS_SCHED_YIELD     |
-|                | *             | SYS_SENDMSG         |
-|                |               | SYS_SETITIMER       |
-|                | *             | SYS_SHUTDOWN        |
-|                |               | SYS_SIGALTSTACK     |
-|                |               | SYS_SYNC_FILE_RANGE |
-|                | *             | SYS_TGKILL          |
-|                |               | SYS_WRITE           |
-|                | *             | SYS_WRITEV          |
+| syscall number | syscall name    | syscall code        |
+| -------------- | --------------- | ------------------- |
+| 158            | *arch_prctl     | SYS_ARCH_PRCTL      |
+| 228            | clock_gettime   | SYS_CLOCK_GETTIME   |
+| 56             | *clone          | SYS_CLONE           |
+| 3              | close           | SYS_CLOSE           |
+| 32             | dup             | SYS_DUP             |
+| 291            | epoll_create1   | SYS_EPOLL_CREATE1   |
+| 233            | epoll_ctl       | SYS_EPOLL_CTL       |
+| 281            | *epoll_pwait    | SYS_EPOLL_PWAIT     |
+| 290            | *eventfd2       | SYS_EVENTFD2        |
+| 60             | exit            | SYS_EXIT            |
+| 231            | exit_group      | SYS_EXIT_GROUP      |
+| 285            | fallocate       | SYS_FALLOCATE       |
+| 91             | fchmod          | SYS_FCHMOD          |
+| 72             | *fcntl          | SYS_FCNTL           |
+| 5              | fstat           | SYS_FSTAT           |
+| 74             | fsync           | SYS_FSYNC           |
+| 77             | ftruncate       | SYS_FTRUNCATE       |
+| 202            | *futex          | SYS_FUTEX           |
+| 39             | getpid          | SYS_GETPID          |
+| 318            | getrandom       | unix.SYS_GETRANDOM  |
+| 55             | *getsockopt     | SYS_GETSOCKOPT      |
+| 186            | gettid          | SYS_GETTID          |
+| 86             | gettimeofday    | SYS_GETTIMEOFDAY    |
+| 16             | *ioctl          | SYS_IOCTL           |
+| 8              | lseek           | SYS_LSEEK           |
+| 28             | madvise         | SYS_MADVISE         |
+| 27             | mincore         | SYS_MINCORE         |
+| 9              | *mmap           | SYS_MMAP            |
+| 10             | mprotect        | SYS_MPROTECT        |
+| 11             | munmap          | SYS_MUNMAP          |
+| 35             | nanosleep       | SYS_NANOSLEEP       |
+| 7              | poll            | SYS_POLL            |
+| 17             | pread64         | SYS_PREAD64         |
+| 18             | pwrite64        | SYS_PWRITE64        |
+| 0              | read            | SYS_READ            |
+| 47             | *recvmsg        | SYS_RECVMSG         |
+| 299            | *recvmmsg       | SYS_RECVMMSG        |
+| 219            | restart_syscall | SYS_RESTART_SYSCALL |
+| 13             | rt_sigaction    | SYS_RT_SIGACTION    |
+| 14             | rt_sigprocmask  | SYS_RT_SIGPROCMASK  |
+| 15             | rt_sigreturn    | SYS_RT_SIGRETURN    |
+| 24             | sched_yield     | SYS_SCHED_YIELD     |
+| 46             | *sendmsg        | SYS_SENDMSG         |
+| 38             | setitimer       | SYS_SETITIMER       |
+| 48             | *shutdown       | SYS_SHUTDOWN        |
+| 131            | sigaltstack     | SYS_SIGALTSTACK     |
+| 277            | sync_file_range | SYS_SYNC_FILE_RANGE |
+| 234            | *tgkill         | SYS_TGKILL          |
+| 1              | write           | SYS_WRITE           |
+| 20             | *writev         | SYS_WRITEV          |
 
-根据Linux Shell 5.2 版本的 [syscall table](https://elixir.bootlin.com/linux/v5.2.8/source/arch/x86/entry/syscalls/syscall_64.tbl)，统计出上述共 51 个系统调用。
+根据Linux Shell 5.2 版本的 [syscall table](https://elixir.bootlin.com/linux/v5.2.8/source/arch/x86/entry/syscalls/syscall_64.tbl)，统计出上述共 51 个系统调用。在 syscall name 部分标注星号的，是指 gvisor 规定了只有特定的参数才能通过筛选。如 clone 系统调用
+
+```go
+	syscall.SYS_CLONE: []seccomp.Rule{
+		{
+			seccomp.AllowValue(
+				syscall.CLONE_VM |
+					syscall.CLONE_FS |
+					syscall.CLONE_FILES |
+					syscall.CLONE_SIGHAND |
+					syscall.CLONE_SYSVSEM |
+					syscall.CLONE_THREAD),
+		},
+	}
+```
+
+在 `pkg/seccomp/seccomp_rules.go` 文件中有对于上述写法的说明
+
+```go
+// Rule stores the whitelist of syscall arguments.
+//
+// For example:
+// rule := Rule {
+//       AllowValue(linux.ARCH_GET_FS | linux.ARCH_SET_FS), // arg0
+// }
+type Rule [6]interface{}
+```
+
+即规定了 syscall args 的 whitelist。
+
+#### 这些 syscall 是做什么的
+
+
+
