@@ -14,7 +14,11 @@
 
 
 
-**×× 疑问：如果guest application进行的系统调用sentry没有，sentry会做什么操作？**
+**疑问：如果guest application进行的系统调用sentry没有，sentry会做什么操作？**
+
+When a system call is not defined, the [Missing](https://github.com/google/gvisor/blob/master/pkg/sentry/syscalls/linux/linux64.go#L387) function is executed. This emits an event and returns ENOSYS.
+
+https://groups.google.com/d/msg/gvisor-users/B8mkgwiJFOY/wofIzThVAwAJ
 
 
 
