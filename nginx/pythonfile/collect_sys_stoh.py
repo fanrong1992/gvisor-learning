@@ -2,8 +2,13 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-file_tail = ['2022', '2038', '2039', '2040', '2054', '2057', '2058', '2059', '2060', '2061', '2100', '2101', '2102', '2103', '2104', '2105', '2117', '2118', '2119', '2120', '2142']
+file_path = '/home/zty/dev/nginx/syslog/list'
+file_tail = []
+with open(file_path) as f:
+    for line in f:
+        temp_str = line[line.find(".")+1:-1]
+        file_tail.append(temp_str)
+# print(file_tail)
 
 sys_dict = {}
 
@@ -34,7 +39,7 @@ def get_syscall_dict():
 
     with open(file_path) as f:
         for line in f:
-            if '//' not in line:
+            if '//' not in line and '??' not in line:
                 temp_str = line.replace(' ', '')
                 temp_str = temp_str.replace('(syscall.ENOSYS)', '')
                 temp_str = temp_str.replace(',', '')
@@ -60,7 +65,7 @@ plt.subplot(1, 1, 1)
 
 # 柱子总数
 N = len(sys_list)
-print(N)
+print("num of syscalls: ", N)
 
 # 包含每个柱子对应值的序列
 values = [i[1] for i in sys_list]
@@ -89,7 +94,7 @@ plt.title('syscall from sentry to Host', fontsize=15)
 
 
 x = [i[0] for i in sys_list]
-print(x)
+# print(x)
 print([sys_table[i] for i in x])
 
 # 添加纵横轴的刻度
@@ -99,4 +104,4 @@ plt.yticks(np.arange(0, sys_list[0][1], 5000), fontsize=15)
 # # 添加图例
 # plt.legend(loc="upper right")
 
-plt.show()
+# plt.show()
